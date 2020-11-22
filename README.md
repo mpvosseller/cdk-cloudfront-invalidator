@@ -1,6 +1,6 @@
 # cdk-cloudfront-invalidator
 
-An [AWS CDK](https://aws.amazon.com/cdk) construct that can perform a CloudFront invalidation.
+An AWS CDK construct that can perform a CloudFront invalidation.
 
 `CloudFrontInvalidator` performs an invalidation when it is first created and any time the `hash` property changes thereafter.
 
