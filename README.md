@@ -1,8 +1,8 @@
 # cdk-cloudfront-invalidator
 
-`CloudFrontInvalidator` is a a CDK construct that can perform a CloudFront invalidation.
+A CDK construct that can perform a CloudFront invalidation.
 
-It performs an invalidation when it is first created and any time the `hash` property changes thereafter.
+`CloudFrontInvalidator` performs an invalidation when it is first created and any time the `hash` property changes thereafter.
 
 As an example you could perform a CloudFront invalidation any time a lambda function changes by setting `hash` to `lambdaFunction.currentVersion.version`.
 
