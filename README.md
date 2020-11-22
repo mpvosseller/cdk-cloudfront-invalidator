@@ -1,12 +1,24 @@
-# Welcome to your CDK TypeScript Construct Library project!
+# cloudfront-invalidator
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`CloudfrontInvalidator`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+`CloudFrontInvalidator` is a a CDK construct that can perform a CloudFront invalidation.
 
-The construct defines an interface (`CloudfrontInvalidatorProps`) to configure the visibility timeout of the queue.
+It performs an invalidation when it is first created and any time the `hash` property changes thereafter.
 
-## Useful commands
+As an example you could perform a CloudFront invalidation any time a lambda function changes by setting `hash` to `lambdaFunction.currentVersion.version`.
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
+## Installation
+
+```
+npm add cloudfront-invalidator
+```
+
+## Usage
+
+```typescript
+import { CloudFrontInvalidator } from 'cloudfront-invalidator'
+
+new CloudFrontInvalidator(this, 'CloudFrontInvalidator', {
+  distributionId: webDistribution.distributionId,
+  hash: '12345', // set to a string value that changes when you want to perform an invalidation
+})
+```

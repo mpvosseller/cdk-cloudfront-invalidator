@@ -1,0 +1,42 @@
+import * as cloudfront from '@aws-cdk/aws-cloudfront'
+import * as s3 from '@aws-cdk/aws-s3'
+import * as cdk from '@aws-cdk/core'
+import { RemovalPolicy } from '@aws-cdk/core'
+import * as cloudfrontInvalidator from 'cloudfront-invalidator'
+
+export class ExampleStack extends cdk.Stack {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props)
+
+    const bucket = new s3.Bucket(this, 'Bucket', {
+      websiteRedirect: {
+        protocol: s3.RedirectProtocol.HTTPS,
+        hostName: 'example.com',
+      },
+      removalPolicy: RemovalPolicy.DESTROY,
+    })
+
+    const webDistribution = new cloudfront.CloudFrontWebDistribution(this, 'WebDistribution', {
+      comment: 'aComment',
+      defaultRootObject: '',
+      originConfigs: [
+        {
+          customOriginSource: {
+            domainName: bucket.bucketWebsiteDomainName,
+            originProtocolPolicy: cloudfront.OriginProtocolPolicy.HTTP_ONLY,
+          },
+          behaviors: [
+            {
+              isDefaultBehavior: true,
+            },
+          ],
+        },
+      ],
+    })
+
+    new cloudfrontInvalidator.CloudFrontInvalidator(this, 'CloudFrontInvalidator', {
+      distributionId: webDistribution.distributionId,
+      hash: '12345',
+    })
+  }
+}

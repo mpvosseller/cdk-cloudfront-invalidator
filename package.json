@@ -1,25 +1,59 @@
 {
   "name": "cloudfront-invalidator",
+  "license": "ISC",
   "version": "0.1.0",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "keywords": [
+    "aws",
+    "cdk",
+    "construct",
+    "cloudfront",
+    "invalidate",
+    "invalidation"
+  ],
+  "files": [
+    "dist/lambda",
+    "dist/lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpvosseller/cloudfront-invalidator.git"
+  },
   "scripts": {
+    "lint": "eslint --fix 'src/**'",
+    "lint:nofix": "eslint 'src/**'",
     "build": "tsc",
+    "clean": "rm -rf dist/",
     "watch": "tsc -w",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "yarn clean && yarn build",
+    "prepublishOnly": "yarn lint:nofix"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.70.0",
+    "@aws-cdk/assert": "^1.74.0",
+    "@aws-cdk/aws-iam": "^1.74.0",
+    "@aws-cdk/aws-lambda": "^1.74.0",
+    "@aws-cdk/core": "^1.74.0",
+    "@types/aws-lambda": "^8.10.64",
     "@types/jest": "^26.0.10",
-    "@types/node": "10.17.27",
+    "@types/node": "^14.14.9",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "aws-sdk": "^2.797.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.4.2",
+    "nock": "^13.0.5",
+    "prettier": "^2.2.0",
     "ts-jest": "^26.2.0",
     "typescript": "~3.9.7"
   },
   "peerDependencies": {
-    "@aws-cdk/core": "1.70.0"
+    "@aws-cdk/aws-iam": "^1.74.0",
+    "@aws-cdk/aws-lambda": "^1.74.0",
+    "@aws-cdk/core": "^1.74.0"
   },
-  "dependencies": {
-    "@aws-cdk/core": "1.70.0"
-  }
+  "dependencies": {}
 }
