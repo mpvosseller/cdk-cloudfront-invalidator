@@ -2,7 +2,7 @@ import * as cloudfront from '@aws-cdk/aws-cloudfront'
 import * as s3 from '@aws-cdk/aws-s3'
 import * as cdk from '@aws-cdk/core'
 import { RemovalPolicy } from '@aws-cdk/core'
-import * as cloudfrontInvalidator from 'cloudfront-invalidator'
+import { CloudFrontInvalidator } from 'cdk-cloudfront-invalidator'
 
 export class ExampleStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -34,7 +34,7 @@ export class ExampleStack extends cdk.Stack {
       ],
     })
 
-    new cloudfrontInvalidator.CloudFrontInvalidator(this, 'CloudFrontInvalidator', {
+    new CloudFrontInvalidator(this, 'CloudFrontInvalidator', {
       distributionId: webDistribution.distributionId,
       hash: '12345',
     })

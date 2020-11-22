@@ -1,4 +1,4 @@
-# cloudfront-invalidator
+# cdk-cloudfront-invalidator
 
 `CloudFrontInvalidator` is a a CDK construct that can perform a CloudFront invalidation.
 
@@ -9,13 +9,13 @@ As an example you could perform a CloudFront invalidation any time a lambda func
 ## Installation
 
 ```
-npm add cloudfront-invalidator
+npm add cdk-cloudfront-invalidator
 ```
 
 ## Usage
 
 ```typescript
-import { CloudFrontInvalidator } from 'cloudfront-invalidator'
+import { CloudFrontInvalidator } from 'cdk-cloudfront-invalidator'
 
 new CloudFrontInvalidator(this, 'CloudFrontInvalidator', {
   distributionId: webDistribution.distributionId,
