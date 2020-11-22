@@ -4,7 +4,7 @@ An [AWS CDK](https://aws.amazon.com/cdk) construct that can perform a CloudFront
 
 `CloudFrontInvalidator` performs an invalidation when it is first created and any time the `hash` property changes thereafter.
 
-As an example you could perform a CloudFront invalidation any time a lambda function changes by setting `hash` to `lambdaFunction.currentVersion.version`.
+As an example you could perform a CloudFront invalidation any time a Lambda function changes by setting `hash` to `lambdaFunction.currentVersion.version`.
 
 ## Installation
 
