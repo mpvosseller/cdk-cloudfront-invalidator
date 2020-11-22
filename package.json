@@ -1,7 +1,7 @@
 {
   "name": "cdk-cloudfront-invalidator",
   "license": "ISC",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "keywords": [
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mpvosseller/cloudfront-invalidator.git"
+    "url": "git+https://github.com/mpvosseller/cdk-cloudfront-invalidator.git"
   },
   "scripts": {
     "lint": "eslint --fix 'src/**'",
