@@ -16,6 +16,11 @@ npm add cdk-cloudfront-invalidator
 
 ```typescript
 import { CloudFrontInvalidator } from 'cdk-cloudfront-invalidator'
+import * as cloudfront from '@aws-cdk/aws-cloudfront'
+
+const webDistribution = new cloudfront.CloudFrontWebDistribution(this, 'WebDistribution', {
+  //...
+})
 
 new CloudFrontInvalidator(this, 'CloudFrontInvalidator', {
   distributionId: webDistribution.distributionId,
