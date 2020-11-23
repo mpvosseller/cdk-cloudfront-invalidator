@@ -27,7 +27,7 @@
     "clean": "rm -rf dist/",
     "watch": "tsc -w",
     "test": "jest",
-    "prepare": "yarn clean && yarn lint:nofix && yarn test && yarn build"
+    "prepublishOnly": "yarn clean && yarn lint:nofix && yarn test && yarn build"
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.74.0",
