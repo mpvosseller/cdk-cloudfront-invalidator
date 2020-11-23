@@ -1,7 +1,7 @@
 {
   "name": "cdk-cloudfront-invalidator",
   "license": "ISC",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "keywords": [
@@ -27,8 +27,7 @@
     "clean": "rm -rf dist/",
     "watch": "tsc -w",
     "test": "jest",
-    "prepare": "yarn clean && yarn build",
-    "prepublishOnly": "yarn lint:nofix"
+    "prepare": "yarn clean && yarn lint:nofix && yarn test && yarn build"
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.74.0",

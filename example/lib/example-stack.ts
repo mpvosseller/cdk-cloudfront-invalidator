@@ -17,7 +17,6 @@ export class ExampleStack extends cdk.Stack {
     })
 
     const webDistribution = new cloudfront.CloudFrontWebDistribution(this, 'WebDistribution', {
-      comment: 'aComment',
       defaultRootObject: '',
       originConfigs: [
         {
